@@ -1,0 +1,11 @@
+# jme-mcp-oauth-mock, started separately via `spring-boot:run`; see the root README.
+jeap:
+  security:
+    oauth2:
+      resourceserver:
+        authorization-server:
+          issuer: http://localhost:8180/oauth-mock
+          jwk-set-uri: http://localhost:8180/oauth-mock/.well-known/jwks.json
+  mcp:
+    security:
+      resource-uri: http://localhost:8081/mcp

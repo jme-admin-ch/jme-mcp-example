@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: jme-mcp-oauth-mock
+  main:
+    banner-mode: off
+  profiles:
+    # Activated whenever nothing else sets spring.profiles.active, so a plain `spring-boot:run` without any
+    # arguments still works -- see application-local.yml and application-ci.yml for what differs.
+    default: local
+
+server:
+  port: 8180
+  servlet:
+    context-path: /oauth-mock
+
+# Local-only client credentials for jme-mcp-authenticated-service, the only service that is a jEAP OAuth2
+# resource server. The audience must match its spring.application.name, since that is the default expected
+# audience. jme-mcp-anonymous-service is not a resource server at all, so it never needs a token.
+oauth-mock-data:
+  clients:
+    - client-id: "mcp-demo-client"
+      client-secret: "{noop}demo-secret"
+      context: "SYS"
+      audience: [ "jme-mcp-authenticated-service" ]
+      userroles: [ "READER" ]
+    # For the interactive authorization_code + PKCE login a real MCP client (Claude Code, Copilot CLI, ...)
+    # performs, as opposed to mcp-demo-client's client_credentials used for manual curl/CI testing above.
+    # "USER" context adds the authorization_code grant with client auth method "none" (no secret needed, for a
+    # public client doing PKCE); the redirect URIs are wildcards since each client picks its own local callback
+    # port -- both host spellings are needed, "localhost" and the literal "127.0.0.1" (Codex CLI's callback
+    # uses the latter; the mock's wildcard match is a plain string prefix, not DNS-equivalence, so one alone
+    # doesn't cover both).
+    - client-id: "mcp-demo-user-client"
+      context: "USER"
+      registered-redirect-uri:
+        - "http://localhost:*"
+        - "http://127.0.0.1:*"
+      audience: [ "jme-mcp-authenticated-service" ]
+      userroles: [ "READER" ]
+  users:
+    - id: "demo-user"
+      given-name: "Demo"
+      family-name: "User"
+      preferred-username: "demo-user"
+      userroles: [ "READER" ]
+
+logging:
+  level:
+    ch.admin.bit.jeap: info

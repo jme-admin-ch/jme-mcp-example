@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ch.admin.bit.jeap</groupId>
+        <artifactId>jme-mcp-example</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jme-mcp-oauth-mock</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <packaging>jar</packaging>
+
+    <description>
+        Local OAuth2/OIDC mock server (jeap-oauth-mock-server) issuing bearer tokens for the example services.
+        Local development only, never a real authorization server.
+    </description>
+
+    <!--
+      jeap-oauth-mock-server's own getting-started.md documents two integration styles: use
+      jeap-oauth-mock-server-instance as parent for a dedicated, standalone mock-server project, or depend on
+      jeap-oauth-mock-server directly when (like here) it is one module in an existing multi-module build,
+      the same choice jme-jwe-example makes for its own jme-jwe-auth-scs module.
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.admin.bit.jeap</groupId>
+            <artifactId>jeap-oauth-mock-server</artifactId>
+            <version>${jeap-oauth-mock-server.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--
+                      No application class of our own: jeap-oauth-mock-server's own ServerApplication already
+                      sits in the library's own package, so its default component scan covers all of the
+                      library's beans. A class contributed here would live outside that scan (a different
+                      package tree, since it must not live inside the library's own package), and none of the
+                      library's beans would be picked up; see docs/custom-token-claims.md's "Packaging
+                      caveat" for the same issue with a custom token customizer. Applies to every goal
+                      (including run), which is exactly what is wanted for mainClass here.
+                    -->
+                    <mainClass>ch.admin.bit.jeap.oauth.mock.server.ServerApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- Repackaging is skipped since there is nothing of our own to bundle. Scoped to this
+                             execution id (the one auto-bound to the package phase), not plugin-level: the
+                             repackage and run goals both bind a field literally named "skip", so a blanket
+                             plugin-level <skip> would silently disable spring-boot:run too. -->
+                        <id>default</id>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

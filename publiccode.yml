@@ -1,0 +1,40 @@
+publiccodeYmlVersion: 0.4.0
+name: jme-mcp-example
+applicationSuite: jEAP
+softwareVersion: 1.0.0
+releaseDate: 2026-11-02
+url: "https://github.com/jme-admin-ch/jme-mcp-example.git"
+landingURL: "https://github.com/jme-admin-ch"
+platforms:
+  - web
+categories:
+  - application-development
+developmentStatus: development
+softwareType: standalone/web
+organisation:
+  uri: https://ld.admin.ch/office/V.1.7
+  name: Federal Office of Information Technology, Systems and Telecommunication
+description:
+  en:
+    localisedName: jme-mcp-example
+    shortDescription: jEAP example for the MCP starter, with one authenticated and one anonymous-access service.
+    longDescription: >
+      jme-mcp-example shows jeap-spring-boot-mcp-starter in two runnable Spring Boot services: one exposing
+      authenticated MCP tools, backed by a local jeap-oauth-mock-server instance that issues bearer tokens, and
+      one with jeap.mcp.security.anonymous-access enabled, mixing a public tool with a protected one to show that
+      each tool still enforces its own rule.
+    features:
+      - MCP server exposing tools via jeap-spring-boot-mcp-starter
+      - Default-deny authenticated tool access with a local OAuth mock server
+      - Opt-in anonymous access with public and protected tools side by side
+legal:
+  license: Apache-2.0
+maintenance:
+  type: internal
+  contacts:
+    - name: Federal Office of Information Technology, Systems and Telecommunication FOITT
+      email: jeap-community@bit.admin.ch
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en

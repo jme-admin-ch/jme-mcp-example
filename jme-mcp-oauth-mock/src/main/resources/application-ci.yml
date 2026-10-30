@@ -1,0 +1,5 @@
+# Prepared for a future containerized CI run where the three modules share a Docker network and reach each
+# other by container hostname (the hostname matches this module's artifact id by convention) instead of a
+# published localhost port. This repository does not yet ship the docker-compose setup that would back this.
+mockserver:
+  base-url: "http://jme-mcp-oauth-mock:8180/oauth-mock"

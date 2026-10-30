@@ -1,0 +1,13 @@
+# Prepared for a future containerized CI run where the three modules share a Docker network and reach each
+# other by container hostname instead of a published localhost port. This repository does not yet ship the
+# docker-compose setup that would back this.
+jeap:
+  security:
+    oauth2:
+      resourceserver:
+        authorization-server:
+          issuer: http://jme-mcp-oauth-mock:8180/oauth-mock
+          jwk-set-uri: http://jme-mcp-oauth-mock:8180/oauth-mock/.well-known/jwks.json
+  mcp:
+    security:
+      resource-uri: http://jme-mcp-authenticated-service:8081/mcp

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: jme-mcp-authenticated-service
+  profiles:
+    # Activated whenever nothing else sets spring.profiles.active, so a plain `spring-boot:run` without any
+    # arguments still works -- see application-local.yml and application-ci.yml for what differs.
+    default: local
+  ai:
+    mcp:
+      server:
+        name: jme-mcp-authenticated-service
+        type: SYNC
+        protocol: STATELESS
+        stateless:
+          mcp-endpoint: /mcp
+        annotation-scanner:
+          enabled: true
+
+server:
+  port: 8081
+
+logging:
+  level:
+    ch.admin.bit.jeap: info

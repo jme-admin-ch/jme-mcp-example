@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ch.admin.bit.jeap</groupId>
+        <artifactId>jme-mcp-example</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jme-mcp-anonymous-service</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <packaging>jar</packaging>
+
+    <description>
+        MCP server with jeap.mcp.security.anonymous-access enabled: calls without a bearer token reach the
+        endpoint, a public tool (@PreAuthorize("permitAll()")) answers them, a protected tool still denies them.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.admin.bit.jeap</groupId>
+            <artifactId>jeap-spring-boot-mcp-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!-- Skip repackaging to avoid building a fat jar: jme-mcp-test depends on this module as
+                             a library (its application class and tools) and cannot load classes nested inside a
+                             repackaged executable jar. Run with spring-boot:run instead, see README.
+                             Scoped to this execution id (the one auto-bound to the package phase), not set as
+                             plugin-level configuration: both the repackage and run goals bind a field literally
+                             named "skip", so a blanket plugin-level <skip> silently disables spring-boot:run too. -->
+                        <id>default</id>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

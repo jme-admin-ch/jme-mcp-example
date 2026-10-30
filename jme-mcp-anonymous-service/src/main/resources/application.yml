@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: jme-mcp-anonymous-service
+  ai:
+    mcp:
+      server:
+        name: jme-mcp-anonymous-service
+        type: SYNC
+        protocol: STATELESS
+        stateless:
+          mcp-endpoint: /mcp
+        annotation-scanner:
+          enabled: true
+
+server:
+  port: 8082
+
+# No jeap.security.oauth2.resourceserver.* at all: this service is not a jEAP OAuth2 resource server. No
+# jme-mcp-oauth-mock dependency, no local/ci profile split either -- there is nothing left to differ between
+# them once there is no resource server to point at.
+jeap:
+  mcp:
+    security:
+      anonymous-access: true
+
+logging:
+  level:
+    ch.admin.bit.jeap: info

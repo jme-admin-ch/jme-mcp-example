@@ -1,0 +1,4 @@
+# All three example modules run via `spring-boot:run` directly on the host (repackaging is skipped, see
+# each module's pom.xml, so a plain `java -jar` run does not work here).
+mockserver:
+  base-url: "http://localhost:8180/oauth-mock"
