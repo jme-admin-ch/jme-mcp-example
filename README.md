@@ -36,7 +36,7 @@ nothing of its own to bundle in the first place), so run them with `spring-boot:
 ### `local` and `ci` profiles
 
 `jme-mcp-oauth-mock` and `jme-mcp-authenticated-service` ship `application-local.yml` and `application-ci.yml`,
-same idea as [`jme-jwe-example`](https://github.com/jeap-admin-ch/jme-jwe-example): `local` has them reach each
+same idea as [`jme-jwe-example`](https://github.com/jme-admin-ch/jme-jwe-example): `local` has them reach each
 other at `localhost` and is activated by default (`spring.profiles.default: local`), so the plain commands above
 need no extra flag. `ci` switches the oauth-mock and service URLs to container hostnames (the module's artifact
 id) for a future containerized CI run, activated with `--spring.profiles.active=ci` or `SPRING_PROFILES_ACTIVE=ci`.
