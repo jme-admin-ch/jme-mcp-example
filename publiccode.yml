@@ -2,7 +2,7 @@ publiccodeYmlVersion: 0.4.0
 name: jme-mcp-example
 applicationSuite: jEAP
 softwareVersion: 1.8.0
-releaseDate: 2026-11-20
+releaseDate: 2026-11-23
 url: "https://github.com/jme-admin-ch/jme-mcp-example.git"
 landingURL: "https://github.com/jme-admin-ch"
 platforms:
