@@ -37,8 +37,8 @@ Apache License Version 2.0
  * Nimbus LangTag - [com.nimbusds:lang-tag](https://bitbucket.org/connect2id/nimbus-language-tags)
  * Nimbus JOSE+JWT - [com.nimbusds:nimbus-jose-jwt](https://bitbucket.org/connect2id/nimbus-jose-jwt)
  * OAuth 2.0 SDK with OpenID Connect and Federation extensions - [com.nimbusds:oauth2-oidc-sdk](https://bitbucket.org/connect2id/oauth-2.0-sdk-with-openid-connect-extensions)
- * okhttp - [com.squareup.okhttp3:okhttp-jvm](https://square.github.io/okhttp/)
- * okio - [com.squareup.okio:okio-jvm](https://github.com/square/okio/)
+ * okhttp - [com.squareup.okhttp3:okhttp-jvm](https://lysine.dev/okhttp/)
+ * okio - [com.squareup.okio:okio-jvm](https://github.com/lysine-dev/okio/)
  * JSON library from Android SDK - [com.vaadin.external.google:android-json](http://developer.android.com/sdk)
  * Apache Commons Logging - [commons-logging:commons-logging](https://commons.apache.org/proper/commons-logging/)
  * context-propagation - [io.micrometer:context-propagation](https://github.com/micrometer-metrics/context-propagation)
@@ -60,11 +60,9 @@ Apache License Version 2.0
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-extension-trace-propagators](https://github.com/open-telemetry/opentelemetry-java)
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk](https://github.com/open-telemetry/opentelemetry-java)
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk-common](https://github.com/open-telemetry/opentelemetry-java)
- * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi](https://github.com/open-telemetry/opentelemetry-java)
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk-logs](https://github.com/open-telemetry/opentelemetry-java)
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk-metrics](https://github.com/open-telemetry/opentelemetry-java)
  * OpenTelemetry Java - [io.opentelemetry:opentelemetry-sdk-trace](https://github.com/open-telemetry/opentelemetry-java)
- * OpenTelemetry Protocol - [io.opentelemetry.proto:opentelemetry-proto](https://github.com/open-telemetry/opentelemetry-proto-java)
  * OpenTelemetry Semantic Conventions Java - [io.opentelemetry.semconv:opentelemetry-semconv](https://github.com/open-telemetry/semantic-conventions-java)
  * Non-Blocking Reactive Foundation for the JVM - [io.projectreactor:reactor-core](https://github.com/reactor/reactor-core)
  * Prometheus Metrics Config - [io.prometheus:prometheus-metrics-config](http://github.com/prometheus/client_java/client_java/prometheus-metrics-config)
@@ -173,12 +171,12 @@ Apache License Version 2.0
  * spring-security-web - [org.springframework.security:spring-security-web](https://spring.io/projects/spring-security)
  * thymeleaf - [org.thymeleaf:thymeleaf](http://www.thymeleaf.org/thymeleaf-lib/thymeleaf)
  * thymeleaf-spring6 - [org.thymeleaf:thymeleaf-spring6](http://www.thymeleaf.org/thymeleaf-lib/thymeleaf-spring6)
- * unbescape - [org.unbescape:unbescape](http://www.unbescape.org)
+ * unbescape - [org.unbescape:unbescape](https://www.unbescape.org)
  * WireMock - [org.wiremock:wiremock-standalone](http://wiremock.org)
  * wiremock-spring-boot - [org.wiremock.integrations:wiremock-spring-boot](https://github.com/wiremock/wiremock-spring-boot)
  * wiremock-spring-boot-standalone - [org.wiremock.integrations:wiremock-spring-boot-standalone](https://github.com/wiremock/wiremock-spring-boot)
  * org.xmlunit:xmlunit-core - [org.xmlunit:xmlunit-core](https://www.xmlunit.org/)
- * SnakeYAML - [org.yaml:snakeyaml](https://bitbucket.org/snakeyaml/snakeyaml)
+ * SnakeYAML - [org.yaml:snakeyaml](https://codeberg.org/snakeyaml/snakeyaml)
  * Jackson-core - [tools.jackson.core:jackson-core](https://github.com/FasterXML/jackson-core)
  * jackson-databind - [tools.jackson.core:jackson-databind](https://github.com/FasterXML/jackson)
  * Jackson-dataformat-YAML - [tools.jackson.dataformat:jackson-dataformat-yaml](https://github.com/FasterXML/jackson-dataformats-text)
@@ -191,7 +189,6 @@ BSD 2-Clause License
 BSD License 3
 -------------------------------
 
- * Protocol Buffers [Core] - [com.google.protobuf:protobuf-java](https://developers.google.com/protocol-buffers/protobuf-java/)
  * ANTLR 4 Runtime - [org.antlr:antlr4-runtime](https://www.antlr.org/antlr4-runtime/)
  * Hamcrest - [org.hamcrest:hamcrest](http://hamcrest.org/JavaHamcrest/)
  * asm - [org.ow2.asm:asm](http://asm.ow2.io/)
@@ -261,7 +258,6 @@ MIT License
 Public Domain
 -------------------------------
 
- * AOP alliance - [aopalliance:aopalliance](http://aopalliance.sourceforge.net)
  * HdrHistogram - [org.hdrhistogram:HdrHistogram](http://hdrhistogram.github.io/HdrHistogram/)
 
 The BSD License
